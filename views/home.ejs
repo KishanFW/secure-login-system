@@ -1,0 +1,20 @@
+<%- include('partials/header') -%>
+
+<div class="container mt-5 text-center">
+    <h1>Welcome to Secure Login System</h1>
+    <p class="lead">Please register or log in to continue.</p>
+
+    <% if (session && session.user) { %>
+        <a href="/dashboard" class="btn btn-success m-2">Go to Dashboard</a>
+        <a href="/logout" class="btn btn-danger m-2">Logout</a>
+    <% } else { %>
+        <a href="/register" class="btn btn-primary m-2">Register</a>
+        <a href="/login" class="btn btn-outline-primary m-2">Login</a>
+    <% } %>
+</div>
+
+<div class="container mt-5 text-center">
+    <a href="/feature" class="btn btn-warning mt-3">🔍 View Feature Tutorial</a>
+</div>
+
+<%- include('partials/footer') -%>

@@ -1,0 +1,93 @@
+<%- include('partials/header') -%>
+
+<link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+
+<div class="container mt-5 mb-5">
+  <h1 class="text-center mb-4" data-aos="fade-down">🔐 Secure Login System Tutorial</h1>
+
+  <div class="row mb-4" data-aos="fade-up">
+    <div class="col-lg-12">
+      <p>This page explains the secure login system implemented in this project. It helps developers understand and reuse this functionality in their own websites.</p>
+    </div>
+  </div>
+
+  <div class="row" data-aos="fade-up">
+    <div class="col-lg-12">
+      <h3>✅ Features Implemented</h3>
+      <ul class="list-group mb-4">
+        <li class="list-group-item">User registration and login forms</li>
+        <li class="list-group-item">Password hashing using <code>bcrypt</code></li>
+        <li class="list-group-item">Session-based login state with <code>express-session</code></li>
+        <li class="list-group-item">Login validation with user-friendly error messages</li>
+        <li class="list-group-item">SQLite database integration for storing user details</li>
+        <li class="list-group-item">Role-based access control (admin vs user)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row" data-aos="fade-up">
+    <div class="col-lg-12">
+      <h3>🛠 How It Was Implemented</h3>
+      <ol class="list-group list-group-numbered mb-4">
+        <li class="list-group-item">
+          Installed required packages: <code>express</code>, <code>ejs</code>, <code>bcrypt</code>, <code>express-session</code>, <code>sqlite3</code>, and <code>body-parser</code>.
+        </li>
+        <li class="list-group-item">
+          Created a <strong>users</strong> table in SQLite to store user details including <code>role</code>.
+        </li>
+        <li class="list-group-item">
+          Hashed passwords with <code>bcrypt.hash()</code> during registration.
+        </li>
+        <li class="list-group-item">
+          Used <code>bcrypt.compare()</code> during login to verify credentials securely.
+        </li>
+        <li class="list-group-item">
+          Stored user info in the session using <code>req.session.user</code> upon successful login.
+        </li>
+        <li class="list-group-item">
+          Used custom middleware <code>requireLogin</code> to protect routes like <code>/dashboard</code>.
+        </li>
+        <li class="list-group-item">
+          Dashboard content dynamically changes based on user's role.
+        </li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="row" data-aos="fade-up">
+    <div class="col-lg-12">
+      <h3>📁 File Structure Overview</h3>
+      <pre class="bg-light p-3 rounded">
+.
+├── index.js
+├── users.db
+├── views/
+│   ├── home.ejs
+│   ├── register.ejs
+│   ├── login.ejs
+│   ├── dashboard.ejs
+│   ├── feature.ejs
+│   └── partials/
+│       ├── header.ejs
+│       └── footer.ejs
+├── public/
+│   └── css/
+│       └── style.css
+      </pre>
+    </div>
+  </div>
+
+  <div class="row mt-5" data-aos="fade-up">
+    <div class="col text-center">
+      <a href="/" class="btn btn-primary me-2">← Back to Home</a>
+      <a href="/dashboard" class="btn btn-success">Go to Dashboard →</a>
+    </div>
+  </div>
+</div>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+
+<%- include('partials/footer') -%>

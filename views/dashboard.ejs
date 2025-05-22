@@ -1,0 +1,22 @@
+<%- include('partials/header') -%>
+
+<div class="container mt-5">
+    <h2>Welcome, <%= user.name %>!</h2>
+    <p>You are logged in as: <strong><%= user.role %></strong></p>
+
+    <% if (user.role === 'admin') { %>
+        <div class="alert alert-info mt-4">
+        <h4>Admin Panel</h4>
+        <p>Here you can manage users or content (demo purpose).</p>
+        </div>
+    <% } else { %>
+        <div class="alert alert-success mt-4">
+        <h4>User Dashboard</h4>
+        <p>Enjoy browsing and using the site!</p>
+        </div>
+    <% } %>
+
+    <a href="/logout" class="btn btn-danger mt-4">Logout</a>
+</div>
+
+<%- include('partials/footer') -%>
